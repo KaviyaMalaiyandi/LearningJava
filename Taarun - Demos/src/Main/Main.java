@@ -35,7 +35,7 @@ public class Main {
 		Car cars[] = new Car[100];
 		Scanner scanner = new Scanner(System.in);
 		
-		for(int i=0;i<3;i++) {
+		/*for(int i=0;i<3;i++) {
 		    System.out.println("Enter car " +(i+1) +" Name");
 			String carName = scanner.next();
 			System.out.println("Enter car " +(i+1) +" Color");
@@ -46,18 +46,22 @@ public class Main {
 			cars[i] = new Car(carName,carPrice,carColor);
 		}
 		System.out.println("Thank You");
-		System.out.println("------------------------------------------------------");
+		System.out.println("------------------------------------------------------");*/
 		
 		int option = 0;
+		int next=0;
 		
-		while (option < 4) {
+		while (option < 6) {
 			System.out.println("Enter a option");
 			System.out.println("1) Display all");
 			System.out.println("2) Search");
 			System.out.println("3) Add");
-			System.out.println("4) Exit");
+			System.out.println("4) Delete");
+			System.out.println("5) Update");
+			System.out.println("6) Exit");
 
 			option = scanner.nextInt();
+			
 
 			switch (option) {
 			case 1:
@@ -77,26 +81,47 @@ public class Main {
 				}
 				break;
 			case 3:
-				int length=0;
-				for (int i = 0; cars[i]!=null; i++) {
-					length=i;
-				}
-				length=length+1;
-				if(length<10) {
-				System.out.println("Enter car " +(length+1) +" Name");
+				if(next<10) {
+				System.out.println("Enter car " +(next+1) +" Name");
 				String carName = scanner.next();
-				System.out.println("Enter car " +(length+1) +" Color");
+				System.out.println("Enter car " +(next+1) +" Color");
 				String carColor = scanner.next();
-				System.out.println("Enter car " +(length+1) +" Price");
+				System.out.println("Enter car " +(next+1) +" Price");
 				Double carPrice = scanner.nextDouble();
-				cars[length] = new Car(carName,carPrice,carColor);
+				cars[next] = new Car(carName,carPrice,carColor);
+				next=next+1;
 			    }
 				else {
 					System.out.println("List full cannot be added ");
 				}
 				break;
+			case 4:
+				System.out.println("Enter car name");
+				String delete = scanner.next();
+				for(int i=0;cars[i]!=null;i++) {
+					if(cars[i].getName().equals(delete)) {
+						for(int j=i;cars[j]!=null;j++) {
+						cars[j]=cars[j+1];
+					}
+				}
+				}
+				break;
+			case 5:
+				System.out.println("Enter car name");
+				String update = scanner.next();
+				for(int i=0;cars[i]!=null;i++) {
+					if(cars[i].getName().equals(update)) {
+						String carName=update;
+						System.out.println("Enter car " +(i+1) +" Color");
+						String carColor = scanner.next();
+						System.out.println("Enter car " +(i+1) +" Price");
+						Double carPrice = scanner.nextDouble();
+						cars[i] = new Car(carName,carPrice,carColor);
+					}
 		}
+				break;
 
 	}
+}
 }
 }
