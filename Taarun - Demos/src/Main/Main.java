@@ -36,7 +36,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		
 		/*for(int i=0;i<3;i++) {
-		    System.out.println("Enter car " +(i+1) +" Name");
+		    System.out.println("Enter car " 3+(i+1) +" Name");
 			String carName = scanner.next();
 			System.out.println("Enter car " +(i+1) +" Color");
 			String carColor = scanner.next();
@@ -50,6 +50,7 @@ public class Main {
 		
 		int option = 0;
 		int next=0;
+		int count=0;
 		
 		while (option < 6) {
 			System.out.println("Enter a option");
@@ -74,11 +75,14 @@ public class Main {
 				String key = scanner.next();
 				for (int i = 0; cars[i]!=null; i++) {
 					if (cars[i].getName().equals(key)) {
+						count++;
 						System.out.println(cars[i].getName() + " | " + cars[i].getColor() + " | " + cars[i].getPrice());
-					} else {
+					} 
+				}
+				if(count==0) {
 						System.out.println("Requested car not found");
 					}
-				}
+
 				break;
 			case 3:
 				if(next<10) {
@@ -100,10 +104,15 @@ public class Main {
 				String delete = scanner.next();
 				for(int i=0;cars[i]!=null;i++) {
 					if(cars[i].getName().equals(delete)) {
+						count++;
 						for(int j=i;cars[j]!=null;j++) {
 						cars[j]=cars[j+1];
+						next--;
 					}
 				}
+				}
+				if(count==0) {
+					System.out.println("Requested car not found");
 				}
 				break;
 			case 5:
@@ -111,6 +120,7 @@ public class Main {
 				String update = scanner.next();
 				for(int i=0;cars[i]!=null;i++) {
 					if(cars[i].getName().equals(update)) {
+						count++;
 						String carName=update;
 						System.out.println("Enter car " +(i+1) +" Color");
 						String carColor = scanner.next();
@@ -119,6 +129,9 @@ public class Main {
 						cars[i] = new Car(carName,carPrice,carColor);
 					}
 		}
+				if(count==0) {
+					System.out.println("Requested car not found");
+				}
 				break;
 
 	}
