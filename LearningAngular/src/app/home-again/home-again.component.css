@@ -1,0 +1,9 @@
+.home-again-button {
+    margin-left: 2px;
+}
+
+mat-card {
+    background-color: rgb(182, 182, 182);
+    margin-left: 5px;
+    width: 180px;
+}

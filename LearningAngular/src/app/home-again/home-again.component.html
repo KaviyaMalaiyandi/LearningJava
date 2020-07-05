@@ -1,0 +1,14 @@
+<p>home-again works!</p>
+<mat-card>
+    <a [routerLink]="[ '/user' ]" routerLinkActive="active"><button class="home-again-button" mat-button>user</button></a>
+    <a [routerLink]="[ '/user/history' ]" routerLinkActive="active"><button class="home-again-button" mat-button>user history</button></a>
+</mat-card>
+<br />
+<button class="home-again-button" mat-button disabled>{{counter}}</button>
+<button class="home-again-button" mat-button (click)="addCounter()">add</button>
+<button class="home-again-button" mat-button (click)="minusCounter()">minus</button>
+
+<br /><br /><br />
+
+<button class="home-again-button" mat-button [disabled]="isEnabled" (click)="clicked()">click-me</button>
+<button class="home-again-button" mat-button (click)="enableDisable()">{{enableDisbleClick}}</button>
