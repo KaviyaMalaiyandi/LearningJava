@@ -1,0 +1,33 @@
+1)Creating a new Angular project
+ng new <project-name>
+
+----------------------------------------------
+2) Component contains
+	- component.ts
+	- component-test.ts
+	- html
+	- css
+	
+----------------------------------------------
+3) Module contains
+	- module.ts
+	- routing.ts
+
+----------------------------------------------
+4) Service contains
+	- service.ts
+	- service-test.ts
+
+----------------------------------------------
+5) Run your project
+ng serve (or) ns s
+
+----------------------------------------------
+6) Generating Component
+ng generate component <name> (or) ng g c <name>
+
+----------------------------------------------
+7) Generating Module
+ng generate module <name> --routing (or) ng g m <name> --routing
+
+----------------------------------------------
